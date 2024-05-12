@@ -61,7 +61,7 @@ public class Login {
 
         // Should really wait until the recaptcha checkbox is displayed. This will be a future enhancement
         try {
-            Thread.sleep(15000);  // 10 seconds to allow for manually clicking the I am not a robot checkbox and picture selection
+            Thread.sleep(20000);  // 20 seconds to allow for manually clicking the I am not a robot checkbox and picture selection
         }
         catch(InterruptedException ie) {
         }
@@ -73,9 +73,5 @@ public class Login {
     public void clickLinkRegisterNow() {
         this.linkRegisterNow = this.driver.findElement(By.linkText("Register now"));
         this.linkRegisterNow.click();
-    }
-    public void gotoHomepage() {
-        WebElement siteHeader = this.driver.findElement(By.id("SiteHeader_SiteTabs_kevin"));
-        siteHeader.click();
     }
 }

@@ -13,6 +13,7 @@ public class Main {
 
         WebDriver driver = new EdgeDriver();
         driver.get("https://www.tmsandbox.co.nz/");
+        driver.manage().window().maximize();
         Login TradeMeLogin = new Login(driver);
         TradeMeLogin.clickMyTradeMe();
 
@@ -36,6 +37,12 @@ public class Main {
         TradeMeLogin.clickMyTradeMe();  // Go to the My Trademe section which allows filtering by category
         SearchListings computerSearch = new SearchListings(driver);
         computerSearch.testSearch("laptop","Computers");
+
+        // Listing an item
+        TradeMeLogin.clickMyTradeMe();
+        UIListing newListing = new UIListing(driver);
+        newListing.listingGeneral();
+
 
         // Close drivers
         driver.quit();
