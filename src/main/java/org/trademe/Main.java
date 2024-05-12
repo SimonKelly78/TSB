@@ -8,7 +8,7 @@ public class Main {
         System.out.println("Hello and welcome!");
 
         // Setup variables
-        String loginEmail = "sdpkelly+8@live.com";
+        String loginEmail = "sdpkelly+10@live.com";
         String pword = "TSBapplication";
 
         WebDriver driver = new EdgeDriver();

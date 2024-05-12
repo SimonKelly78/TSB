@@ -80,7 +80,7 @@ public class Register {
         this.email.sendKeys(loginEmail);
         this.password.sendKeys(pword);
         this.confirmPassword.sendKeys(pword);
-        this.userName.sendKeys("Simon8");
+        this.userName.sendKeys("Simon10");
 
         this.firstName.sendKeys("Simon");
         this.lastName.sendKeys("Kelly");
