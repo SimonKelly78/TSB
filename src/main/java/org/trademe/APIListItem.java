@@ -1,10 +1,12 @@
 package org.trademe;
 
 import com.google.gson.Gson;
+import com.sun.net.httpserver.Authenticator;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
+import org.testng.Assert;
 
 public class APIListItem {
     public APIListItem() {
@@ -21,6 +23,10 @@ public class APIListItem {
 
         // Create a Trademe Listing object using the default values
         trademeListing ListingDetails = new trademeListing();
+        ListingDetails.setDescription("HP Pavilion Laptop in good condition for age");
+        ListingDetails.setPaymentMethods("1"); // 1 - Bank Deposit
+        ListingDetails.setPaymentMethods("4"); // 4 - Cash
+        ListingDetails.setShippingOptions("3"); // 3 - Free
 
         Gson gson = new Gson();
         String jsonListing = gson.toJson(ListingDetails);
@@ -34,6 +40,8 @@ public class APIListItem {
                 .post("/Selling.json?file_format=json");
 
         ResponseBody body = response.getBody();
-        System.out.println("Response Body is: " + body.asString());
+        String bodyAsString = body.asString();
+        Assert.assertEquals(bodyAsString.contains("Success"),true,"Listing successful");
+        System.out.println(bodyAsString);
     }
 }
